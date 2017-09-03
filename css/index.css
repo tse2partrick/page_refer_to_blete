@@ -1,0 +1,587 @@
+body{
+  overflow-x: hidden;
+}
+/************************************************************
+ *                                                          *
+ *                      公共样式                            *
+ *                                                          *
+ ************************************************************/
+a, a:hover{
+  text-decoration: none;
+  color: none;
+}
+
+.animate_item{
+  opacity: 0;
+}
+/* 公共介绍标签 */
+.intro{
+  margin-top: 120px;
+  text-align: center;
+}
+.intro h1{
+  margin-bottom: 20px;
+}
+.intro h1 span{
+  color: #90CAF9;
+}
+.intro .horizon{
+  display: inline-block;
+  width: 100px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 1px 5px #ccc;
+  margin-bottom: 20px;
+}
+.intro p{
+  text-indent: 0em;
+  font-size: 18px;
+  color: #999;
+}
+
+/* 整个头部标签，包括nav标签和自定义carousel插件，主要设置阴影 */
+#home{
+  border-bottom: 1px solid #ccc;
+  box-shadow: 1px 1px 10px #999;
+}
+/* 整个头部标签，包括nav标签和自定义carousel插件，主要设置阴影 */
+
+
+/************************************************************
+ *                                                          *
+ *                      navigation                          *
+ *                                                          *
+ ************************************************************/
+/* 整个头部nav标签，包括LOGO和导航栏 */
+#home nav{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  background: transparent;
+  transition: .3s;
+}
+
+#home .xs-navbar{
+  position: fixed;
+  opacity: 0;
+}
+
+/* 如果滚动条离顶部有距离，添加整个nav标签的样式 */
+#home .navAdded{
+  background: white;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 1px 1px 10px #999;
+  opacity: 1;
+}
+
+/* LOGO标签 */
+#home nav .nav-brand {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 25px;
+}
+
+/* 导航栏标签 */
+#home nav .nav-bar{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+#home nav .nav-bar li{
+    display: inline-block;
+    margin-right: 45px;
+}
+
+#home nav .nav-bar a{
+  font-size: 18px;
+  color: black;
+}
+
+#home nav .nav-bar li a:hover, #home nav .nav-bar .active{
+  color: #90CAF9;
+  text-decoration: none;
+}
+
+.myfade{
+  transition: 3s;
+}
+
+
+/************************************************************
+ *                                                          *
+ *       头部轮播展示区域，自定义淡入淡出效果carousel       *
+ *                                                          *
+ ************************************************************/
+#myCarousel{
+  position: relative;
+  height: 100%;
+}
+  /* 里面每一张图片的DIV框架大小 */
+#myCarousel .item{
+  position: absolute;
+  opacity: 0;
+  transition: 2s;
+  width: 100%;
+}
+  /* 图片占据框架大小的百分比 */
+#myCarousel .item img{
+  max-width: 100%;
+}
+  /* 轮播标签的左右控制按钮 */
+#myCarousel .control span{
+  position: relative;
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 25%;
+}
+
+
+  /* 左右标签位置指示器的鼠标划过样式 */
+#myCarousel .control span:hover, #myCarousel .myCarousel-indicators span:hover{
+  cursor: pointer;
+  color: white;
+}
+#myCarousel .control .controlRight{
+  float: right;
+}
+
+/* 轮播标签里的图片位置指示器 */
+#myCarousel .myCarousel-indicators{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#myCarousel .myCarousel-indicators span{
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+#myCarousel .myCarousel-indicators .active{
+  background-color: #90CAF9;
+}
+
+#myCarousel .active{
+    opacity: 1;
+}
+
+
+
+
+/************************************************************
+ *                                                          *
+ *                     Fine Movie展示区域                   *
+ *                                                          *
+ ************************************************************/
+/* 整个movie框架 */
+
+.movie{
+  margin-top: 80px;
+  text-align: center;
+}
+
+/* movie的标签 */
+.movie .movie-icon{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  transition: .5s;
+}
+.movie .movie-icon i{
+  margin-top: 25px;
+  font-size: 40px;
+  color: #999;
+}
+.movie .movie-icon-add{
+  background-color: #90CAF9;
+  border: 5px solid #ccc;
+  box-shadow: 0px 0px 20px #999;
+}
+.movie .movie-icon .fa-add{
+  color: white;
+}
+
+/* movie标题 */
+.movie h3{
+  margin-top: 30px;
+}
+
+/* movie介绍文字 */
+.movie p{
+  width: 90%;
+  text-indent: 2em;
+}
+
+
+
+/************************************************************
+ *                                                          *
+ *           Favorite-stars最喜爱的明星展示区域             *
+ *                                                          *
+ ************************************************************/
+.favorite-stars{
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* 每一位明星所占的框架 */
+.favorite-stars .stars{
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border: 6px double #90CAF9;
+  overflow: hidden;
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+
+/* star-pic图片设置圆角和固定宽高 */
+.favorite-stars .stars .star-pic{
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  border-radius: 50px;
+}
+
+
+
+/************************************************************
+ *                                                          *
+ *           图片轮播展示区域，使用owl-carousel插件         *
+ *                                                          *
+ ************************************************************/
+#poster #owl-carousel{
+  margin-top: 30px;
+}
+#poster #owl-carousel .owl-item{
+  display: inline-block;
+  height: 500px;
+}
+#poster #owl-carousel .owl-item img{
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+
+/************************************************************
+ *                                                          *
+ *              skill区域使用自定义percentBox插件           *
+ *                                                          *
+ ************************************************************/
+.skill{
+  margin-top: 60px;
+  height: 300px;
+  text-align: center;
+}
+.skill-intro{
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #666;
+}
+
+
+/************************************************************
+ *                                                          *
+ *        scenery图片展示区域，使用isotope元素显示插件      *
+ *                                                          *
+ ************************************************************/
+#scenery{
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* 风景图片展示区域下的按钮组框架 */
+#scenery .btn-group{
+  display: inline-block;
+  margin-top: 30px;
+}
+
+/* 风景图片展示区域下按钮组里的按钮 */
+#scenery .btn-group button{
+  font-size: 20px;
+  padding: 10px;
+  margin-right: 5px;
+  border: 2px solid #90CAF9;
+  background: white;
+  color: #999;
+  transition: .5s;
+}
+#scenery .btn-group button:hover, #scenery .btn-group .active{
+  color: white;
+  background: #90CAF9;
+}
+
+/* isotope插件里的container */
+#scenery #views{
+  text-align: justify;
+  margin-top: 20px;
+}
+
+/* isotope插件里的container下的item，也就是每一张图片的框架*/
+#scenery #views .item{
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  float: left;
+  border: 1px solid;
+  height: 300px;
+}
+
+/* 具体风景图片 */
+#scenery #views .item img{
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gallery插件遮罩层 */
+#scenery #views .item .item-inner{
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(100,100,100,0.9);
+  text-align: center;
+  z-index: 100;
+  opacity: 0;
+  transition: .5s;
+}
+#scenery #views .item .item-inner:hover{
+  opacity: 1;
+}
+
+/* Gallery插件遮罩层里面的搜索图标 */
+#scenery #views .item .item-inner i{
+  display: inline-block;
+  margin-top: 35%;
+  font-size: 25px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: .5s;
+  color: white;
+  background: rgb(150,150,150);
+}
+#scenery #views .item .item-inner i:hover{
+  background: #90CAF9;
+}
+
+
+/************************************************************
+ *                                                          *
+ *                         price区域                        *
+ *                                                          *
+ ************************************************************/
+/* 清楚上面图片左浮动带来的影响 */
+#price{
+   clear: both;
+}
+
+/* price-content价格牌子展示区域 */
+#price .price-content{
+  position: relative;
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* simple-standard-ultimate3种价格的框架 */
+#price .price-content .price-simple,#price .price-content .price-standard,#price .price-content .price-ultimate{
+  display: inline-block;
+  height: 750px;
+  width: 33%;
+  float: left;
+  background: #eee;
+}
+
+/* 中间的框架 */
+ #price .price-content .price-standard{
+  height: 800px;
+  margin-top: -30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* 3种价格的框架里的标题 */
+#price .price-content .price-simple h3,#price .price-content .price-standard h3,#price .price-content .price-ultimate h3{
+  padding-top: 60px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* 3种价格的框架里的费用情况 */
+#price .price-content .price-simple span,#price .price-content .price-standard span,#price .price-content .price-ultimate span{
+  font-size: 30px;
+  font-family: Arial;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+/* 3种价格的框架里的不同级别服务 */
+#price .price-content .price-server{
+  padding: 5px;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #9c9c9c;
+}
+
+/* 3种价格的框架里的按钮*/
+#price .price-content .price-server button{
+  margin-top: 30px;
+  border: 0;
+  width: 130px;
+  background: #90CAF9;
+  color: white;
+  padding: 13px;
+  transition: .3s;
+  border-radius: 5px;
+}
+#price .price-content .price-server button:hover{
+  box-shadow: 0 0 5px 5px #ccc;
+}
+
+
+
+
+
+/************************************************************
+ *                                                          *
+ *                      contact区域                         *
+ *                                                          *
+ ************************************************************/
+
+#contact .infoFrame{
+  margin-top: 30px;
+}
+#contact .infoFrame .my-info .relief{
+  font-size: 20px;
+  margin-top: 30px;
+  color: #888;
+}
+#contact .infoFrame .my-info .relief .social-icon{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  background: #90CAF9;
+  margin-right: 10px;
+}
+
+#contact .infoFrame .user-info input{
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  font-size: 15px;
+  padding: 20px;
+  border: 3px solid #999;
+  outline: none;
+  transition: .5s;
+}
+#contact .infoFrame .user-info input:focus, #user-msg:focus{
+  border: 3px solid #90CAF9;
+  box-shadow: 0px 0px 1px 1px #90CAF9;
+}
+#user-msg{
+  margin-top: 30px;
+  font-size: 15px;
+  padding: 20px;
+  border: 3px solid #999;
+  outline: none;
+  word-wrap: break-all;
+  overflow: auto;
+}
+#user-msg:empty:before{ 
+  content:attr(placeholder);
+  color: #999;
+}
+/* #user-msg:focus:before{
+  content:none;
+} */
+
+#contact .infoFrame .user-info .touch{
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  background: #90CAF9;
+  transition: .5s;
+}
+#contact .infoFrame .user-info .touch:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+
+
+
+/************************************************************
+ *                                                          *
+ *                      footer区域                          *
+ *                                                          *
+ ************************************************************/
+#footer{
+  margin-top: 60px;
+  background: black;
+  padding-top: 60px;
+}
+#footer .footer{
+  height: 230px;
+  color: white;
+  text-shadow: .2px .2px #eee;
+  text-align: center;
+}
+#footer .footer .footer-heading{
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #ccc;
+}
+#footer .footer .footer-content{
+  font-size: 14px;
+  color: #ccc;
+}
+#footer .footer .footer-content ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#footer .footer .footer-content ul li{
+  display: block;
+  cursor: pointer;
+  transition: .5s;
+}
+#footer .footer .footer-content ul li:hover{
+  color: #999;
+}
+#footer .copyrights{
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-shadow: 0.1px 0.1px #ddd;
+  color: #ccc;
+}
+
+
+
+
+
+
+
+

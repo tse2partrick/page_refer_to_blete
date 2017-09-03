@@ -1,0 +1,43 @@
+.percent-box{
+	width:200px;
+	height:200px;
+	margin:0 auto;
+	position: relative;
+}
+.percent-box div{
+	position: absolute;
+	width:160px;
+	height:160px; 
+	border-radius: 50%;
+	box-sizing:content-box;
+}
+.percent-box .bg1{
+	border:20px solid #ddd;
+}
+.percent-box .bg2{
+	border:20px solid #ddd;
+	clip:rect(0, 100px, 200px, 0);
+}
+.percent-box .round1{
+	border:20px solid #90CAF9;
+	clip:rect(0, 100px, 200px, 0);
+	transform:rotate(0deg);
+}
+.percent-box .round2{
+	border:20px solid #90CAF9;
+	clip:rect(0, 200px, 200px, 100px);
+	display: none;
+}
+.percent-box .num{
+	font:bold 24px/160px Arial;
+	text-align: center;
+	border:20px solid transparent;
+	overflow: hidden;
+	top:-15px;
+}
+.percent-box .word{
+	font:bold 17px/160px Arial;
+	text-align: center;
+	top:15px;
+	border:20px solid transparent;
+}
