@@ -7,8 +7,7 @@ body{
  *                                                          *
  ************************************************************/
 a, a:hover{
-  text-decoration: none;
-  color: none;
+  text-decoration: none !important;
 }
 
 .animate_item{
@@ -57,7 +56,7 @@ a, a:hover{
   z-index: 100;
   width: 100%;
   background: transparent;
-  transition: .3s;
+  transition: all 0.3s;
 }
 
 #home .xs-navbar{
@@ -87,6 +86,7 @@ a, a:hover{
   padding: 0;
   margin-top: 40px;
   text-align: center;
+  transition: .2s;
 }
 
 #home nav .nav-bar li{
@@ -99,7 +99,7 @@ a, a:hover{
   color: black;
 }
 
-#home nav .nav-bar li a:hover, #home nav .nav-bar .active{
+#home nav .nav-bar .active{
   color: #90CAF9;
   text-decoration: none;
 }
@@ -249,7 +249,12 @@ a, a:hover{
   width: 100px;
   height: 100px;
   background-size: cover;
-  border-radius: 50px;
+  border-radius: 50%;
+}
+.stars-name {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 
@@ -576,6 +581,17 @@ a, a:hover{
   margin-bottom: 20px;
   text-shadow: 0.1px 0.1px #ddd;
   color: #ccc;
+}
+
+.goTop {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 999;
+}
+
+.fa:hover {
+  color: #90CAF9;
 }
 
 

@@ -84,21 +84,35 @@ var Carousel = function(){
 
 //首部导航栏不在顶部的时候增加背景色为白色的样式
 var fixedBar = function(){
-    //顶部的时候scrollTop() == 0
-    if($(window).scrollTop()){
-        $('nav').addClass('navAdded');
-        $('.goTop').css('display', 'block');
-    }else{
-        $('nav').removeClass('navAdded');
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aHome').addClass('active');
-        $('.goTop').css('display', 'none');
-    }
+    // 得到每一个锚点所在页面位置
+    let links = ['movie', 'stars', 'poster', 'skills', 'scenery', 'contact']
+    let offsetTops = []
+    links.forEach((i) => {
+        offsetTops.push($('#' + i + 'Anchor').offset().top)
+    })
 
+    // 非顶部添加固定导航
     $(window).scroll(function(){
-        if($(window).scrollTop()){
+        let pos = $(window).scrollTop()
+        if(!!pos){
             $('nav').addClass('navAdded');
             $('.goTop').css('display', 'block');
+            
+            // 判断所在锚点位置区间
+            if (pos < offsetTops[0]) {
+                $('#nav-bar > li > a').removeClass('active');
+                $('#aHome').addClass('active');
+            }
+            for (let i = 0; i < offsetTops.length - 1; i++) {
+                if (pos >= offsetTops[i] && pos < offsetTops[i + 1]) {
+                    $('#nav-bar > li > a').removeClass('active');
+                    $('#a' + links[i].substr(0, 1).toUpperCase() + links[i].substr(1)).addClass('active')
+                }
+            }
+            if (pos >= offsetTops[offsetTops.length - 1]) {
+                $('#nav-bar > li > a').removeClass('active');
+                $('#aContact').addClass('active');
+            }
         }else{
             $('nav').removeClass('navAdded');
             $('#nav-bar > li > a').removeClass('active');
@@ -107,10 +121,16 @@ var fixedBar = function(){
         }
     });
 
-    //放大缩小窗口
+    // 连接点击事件
+    $('#nav-bar > li > a').click(function(){
+        $('#nav-bar > li > a').removeClass('active');
+        setTimeout(() => {
+          $(this).addClass('active');
+        }, 20)
+    });
+
     $(window).resize(function(){
         var width = $(window).width();
-
         if(width > 768){
             //$('nav').css('opacity', '1');
             $('nav').css('display', 'block');
@@ -118,6 +138,8 @@ var fixedBar = function(){
             //$('.xs-navbar-left').css('opacity', '0');
             $('.xs-navbar-left').css('display', 'none');
             $('.xs-navbar-right').css('display', 'block');
+
+            showSideMenu()
         }
         if(width < 768){
             //$('nav').css('opacity', '0');
@@ -126,65 +148,68 @@ var fixedBar = function(){
             //$('.xs-navbar-left').css('opacity', '0');
             $('.xs-navbar-left').css('display', 'none');
             $('.xs-navbar-right').css('display', 'block');
+            if (isMobile()) {
+                setTimeout(() => {
+                  hideSideMenu()
+                }, 2000)
+            }
         }
     });
 
-    //点击显示隐藏
+    //点击显示隐藏侧边栏
     $('.xs-navbar-left').click(function(){
-        //$(this).css('opacity', '0');
-        $(this).css('display', 'none');
-        //$('nav').css('opacity', '1');
-        $('nav').css('display', 'block');
-        //$('.xs-navbar-right').css('opacity', '1');
-        $('.xs-navbar-right').css('display', 'block');
+        showSideMenu()
     });
     $('.xs-navbar-right').click(function(){
-       // $(this).css('opacity', '0');
-        $(this).css('display', 'none');
-        //$('nav').css('opacity', '0');
-        $('nav').css('display', 'none');
-        $('.xs-navbar-left').css('display', 'block');
-        $('.xs-navbar-left').css('opacity', '1');
+        hideSideMenu()
     });
-
-    //点击导航栏连接
-    $('#nav-bar > li > a').click(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    //页面下滑改变导航栏连接
-    $('#movie').waypoint(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aMovie').addClass('active');
-    }, {offset:'0%'});
-    $('#stars').waypoint(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aStars').addClass('active');
-    }, {offset:'0%'});
-    $('#poster').waypoint(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aPoster').addClass('active');
-    }, {offset:'0%'});
-    $('#skills').waypoint(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aSkills').addClass('active');
-    }, {offset:'0%'});
-    $('#scenery').waypoint(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aScenery').addClass('active');
-    }, {offset:'0%'});
-    $('#contact').waypoint(function(){
-        $('#nav-bar > li > a').removeClass('active');
-        $('#aContact').addClass('active');
-    }, {offset:'0%'});
+    
+    // 回到顶部
+    goTop()
 
 
+    // 手机2你秒后关闭侧边导航栏
+    if (isMobile()) {
+        setTimeout(() => {
+          hideSideMenu()
+        }, 2000)
+    }
+};
+
+// 移动端判断
+let isMobile = function() {
+    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+        return true
+      }
+
+    return false
+}
+
+let goTop = function() {
     $('.goTop').click(function(){
         $(this).css('display', 'none');
         $(window).scrollTop(0);
     });
-};
+}
+
+// 显示侧边栏
+let showSideMenu = function() {
+    $('.xs-navbar-left').css('display', 'none');
+    $('nav').css({
+        transform: 'translate3d(0%, 0, 0)'
+    });
+    $('.xs-navbar-right').css('display', 'block');
+}
+
+// 隐藏侧边栏
+let hideSideMenu = function() {
+    $('.xs-navbar-right').css('display', 'none');
+    $('nav').css({
+        transform: 'translate3d(-100%, 0, 0)'
+    });
+    $('.xs-navbar-left').css('display', 'block');
+    $('.xs-navbar-left').css('opacity', '1');
+}
 
 //Movie区域鼠标滑动
 var movieHover = function(){
@@ -235,10 +260,24 @@ var percentBox = function(){
 //owl-carousel插件初始化
 var owlCarousel = function(){
     $('#owl-carousel').owlCarousel({
-
-        items : 3,
-        autoPlay : true,
-
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive:{
+            0:{
+                items:1
+            },
+            500: {
+                items: 2
+            },
+            650: {
+                items: 3
+            },
+            992:{
+                items:4
+            }
+        }
     });
 };
 
@@ -428,7 +467,9 @@ $(function(){
     startMagnific();
 
     //自定义
-    carouselHeight();
+    setTimeout(() => {
+      carouselHeight();
+    }, 20)
     fixedBar();
     movieHover();
     Carousel();
@@ -442,5 +483,8 @@ $(function(){
     animate_rotateRight();
     animate_bounceUp();
 
-    window.addEventListener('resize', carouselHeight)
+    window.addEventListener('resize', () => {
+        carouselHeight()
+        owlCarousel()
+    })
 });
