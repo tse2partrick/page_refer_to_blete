@@ -70,6 +70,7 @@ a, a:hover{
   border-bottom: 1px solid #ccc;
   box-shadow: 1px 1px 10px #999;
   opacity: 1;
+  z-index: 999;
 }
 
 /* LOGO标签 */
@@ -583,6 +584,8 @@ a, a:hover{
   color: #ccc;
 }
 
+
+/* 回到顶部 */
 .goTop {
   position: fixed;
   right: 10px;
@@ -592,12 +595,6 @@ a, a:hover{
 
 .fa:hover {
   color: #90CAF9;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-
-
-
-
-
-
-
-

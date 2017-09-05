@@ -1,6 +1,6 @@
 // 动态计算轮播图高度
-let carouselHeight = function() {
-    let imgHeight = $('#myCarousel .item').innerHeight()
+var carouselHeight = function() {
+    var imgHeight = $('#myCarousel .item').innerHeight()
     $('#myCarousel').css({height: imgHeight + 'px'})
 
     $('#myCarousel .myCarousel-indicators').css({
@@ -13,171 +13,161 @@ let carouselHeight = function() {
 
 //自定义淡入淡出效果轮播插件
 var Carousel = function(){
-            //自动刷新
+    //自动刷新
 
-            var nowPic = $('#myCarousel > .item');
-            var maxPicNum = nowPic.length;
-            var nowPicNum = 0;
+    var nowPic = $('#myCarousel > .item');
+    var maxPicNum = nowPic.length;
+    var nowPicNum = 0;
 
-            var indicator = $('.indicator');
+    var indicator = $('.indicator');
 
-            var fresh = setInterval(function(){
-                    indicator[nowPicNum].removeAttribute('class', 'active');
-                    nowPic[nowPicNum].setAttribute('class', 'item');
-                    if(nowPicNum == maxPicNum-1){
-                        nowPicNum = 0;
-                        nowPic[nowPicNum].setAttribute('class', 'item active');
-                        indicator[nowPicNum].setAttribute('class', 'active');
-                        return;
-                    }
-                    nowPicNum += 1;
-                    nowPic[nowPicNum].setAttribute('class', 'item active');
-                    indicator[nowPicNum].setAttribute('class', 'active');
-            }, 5000);
-            
-            $('.controlLeft').click(function(){
-                window.clearInterval(fresh);
-                indicator[nowPicNum].removeAttribute('class', 'active');
-                nowPic[nowPicNum].setAttribute('class', 'item');
-                if(nowPicNum > maxPicNum-1){
-                    nowPicNum = 0;
-                    nowPic[nowPicNum].setAttribute('class', 'item active');
-                    indicator[nowPicNum].setAttribute('class', 'active');
-                    return;
-                }
-                if(nowPicNum == 0){
-                    nowPicNum = maxPicNum-1;
-                    nowPic[nowPicNum].setAttribute('class', 'item active');
-                    indicator[nowPicNum].setAttribute('class', 'active');
-                    return;
-                }
-                nowPicNum -= 1;
+    var fresh = setInterval(function(){
+            indicator[nowPicNum].removeAttribute('class', 'active');
+            nowPic[nowPicNum].setAttribute('class', 'item');
+            if(nowPicNum == maxPicNum-1){
+                nowPicNum = 0;
                 nowPic[nowPicNum].setAttribute('class', 'item active');
                 indicator[nowPicNum].setAttribute('class', 'active');
-            });
+                return;
+            }
+            nowPicNum += 1;
+            nowPic[nowPicNum].setAttribute('class', 'item active');
+            indicator[nowPicNum].setAttribute('class', 'active');
+    }, 5000);
+    
+    $('.controlLeft').click(function(){
+        window.clearInterval(fresh);
+        indicator[nowPicNum].removeAttribute('class', 'active');
+        nowPic[nowPicNum].setAttribute('class', 'item');
+        if(nowPicNum > maxPicNum-1){
+            nowPicNum = 0;
+            nowPic[nowPicNum].setAttribute('class', 'item active');
+            indicator[nowPicNum].setAttribute('class', 'active');
+            return;
+        }
+        if(nowPicNum == 0){
+            nowPicNum = maxPicNum-1;
+            nowPic[nowPicNum].setAttribute('class', 'item active');
+            indicator[nowPicNum].setAttribute('class', 'active');
+            return;
+        }
+        nowPicNum -= 1;
+        nowPic[nowPicNum].setAttribute('class', 'item active');
+        indicator[nowPicNum].setAttribute('class', 'active');
+    });
 
-            $('.controlRight').click(function(){
-                    window.clearInterval(fresh);
-                    indicator[nowPicNum].removeAttribute('class', 'active');
-                    nowPic[nowPicNum].setAttribute('class', 'item');
-                    if(nowPicNum == maxPicNum-1){
-                        nowPicNum = 0;
-                        nowPic[nowPicNum].setAttribute('class', 'item active');
-                        indicator[nowPicNum].setAttribute('class', 'active');
-                        return;
-                    }
-                    nowPicNum += 1;
-                    nowPic[nowPicNum].setAttribute('class', 'item active');
-                    indicator[nowPicNum].setAttribute('class', 'active');
-            });
-
-            $('.indicator').click(function(){
-                window.clearInterval(fresh);
-                indicator[nowPicNum].removeAttribute('class', 'active');
-                nowPic[nowPicNum].setAttribute('class', 'item');
-
-                nowPicNum = parseInt($(this).attr('data-slide-to'));
+    $('.controlRight').click(function(){
+            window.clearInterval(fresh);
+            indicator[nowPicNum].removeAttribute('class', 'active');
+            nowPic[nowPicNum].setAttribute('class', 'item');
+            if(nowPicNum == maxPicNum-1){
+                nowPicNum = 0;
                 nowPic[nowPicNum].setAttribute('class', 'item active');
                 indicator[nowPicNum].setAttribute('class', 'active');
-            });
-        };
+                return;
+            }
+            nowPicNum += 1;
+            nowPic[nowPicNum].setAttribute('class', 'item active');
+            indicator[nowPicNum].setAttribute('class', 'active');
+    });
+
+    $('.indicator').click(function(){
+        window.clearInterval(fresh);
+        indicator[nowPicNum].removeAttribute('class', 'active');
+        nowPic[nowPicNum].setAttribute('class', 'item');
+
+        nowPicNum = parseInt($(this).attr('data-slide-to'));
+        nowPic[nowPicNum].setAttribute('class', 'item active');
+        indicator[nowPicNum].setAttribute('class', 'active');
+    });
+};
 
 //首部导航栏不在顶部的时候增加背景色为白色的样式
 var fixedBar = function(){
-    // 得到每一个锚点所在页面位置
-    let links = ['movie', 'stars', 'poster', 'skills', 'scenery', 'contact']
-    let offsetTops = []
-    links.forEach((i) => {
-        offsetTops.push($('#' + i + 'Anchor').offset().top)
-    })
-
-    // 非顶部添加固定导航
-    $(window).scroll(function(){
-        let pos = $(window).scrollTop()
-        if(!!pos){
-            $('nav').addClass('navAdded');
-            $('.goTop').css('display', 'block');
-            
-            // 判断所在锚点位置区间
-            if (pos < offsetTops[0]) {
-                $('#nav-bar > li > a').removeClass('active');
-                $('#aHome').addClass('active');
-            }
-            for (let i = 0; i < offsetTops.length - 1; i++) {
-                if (pos >= offsetTops[i] && pos < offsetTops[i + 1]) {
-                    $('#nav-bar > li > a').removeClass('active');
-                    $('#a' + links[i].substr(0, 1).toUpperCase() + links[i].substr(1)).addClass('active')
-                }
-            }
-            if (pos >= offsetTops[offsetTops.length - 1]) {
-                $('#nav-bar > li > a').removeClass('active');
-                $('#aContact').addClass('active');
-            }
-        }else{
-            $('nav').removeClass('navAdded');
-            $('#nav-bar > li > a').removeClass('active');
-            $('#aHome').addClass('active');
-            $('.goTop').css('display', 'none');
-        }
-    });
+    var timer
+    onScroll()
 
     // 连接点击事件
-    $('#nav-bar > li > a').click(function(){
+    $('#nav-bar > li > a').click(function(event){
         $('#nav-bar > li > a').removeClass('active');
-        setTimeout(() => {
+        setTimeout(function() {
           $(this).addClass('active');
         }, 20)
-    });
-
-    $(window).resize(function(){
-        var width = $(window).width();
-        if(width > 768){
-            //$('nav').css('opacity', '1');
-            $('nav').css('display', 'block');
-            //$('.xs-navbar-right').css('opacity', '1');
-            //$('.xs-navbar-left').css('opacity', '0');
-            $('.xs-navbar-left').css('display', 'none');
-            $('.xs-navbar-right').css('display', 'block');
-
-            showSideMenu()
-        }
-        if(width < 768){
-            //$('nav').css('opacity', '0');
-            $('nav').css('display', 'block');
-            //$('.xs-navbar-right').css('opacity', '1');
-            //$('.xs-navbar-left').css('opacity', '0');
-            $('.xs-navbar-left').css('display', 'none');
-            $('.xs-navbar-right').css('display', 'block');
-            if (isMobile()) {
-                setTimeout(() => {
-                  hideSideMenu()
-                }, 2000)
-            }
-        }
-    });
-
-    //点击显示隐藏侧边栏
-    $('.xs-navbar-left').click(function(){
-        showSideMenu()
-    });
-    $('.xs-navbar-right').click(function(){
-        hideSideMenu()
     });
     
     // 回到顶部
     goTop()
-
-
-    // 手机2你秒后关闭侧边导航栏
-    if (isMobile()) {
-        setTimeout(() => {
-          hideSideMenu()
-        }, 2000)
-    }
 };
 
+var onScroll = function() {
+    //  防止不能正确获取offsetTop的位置
+    setTimeout(function() {
+        var links = getAnchorsPos().links
+        var offsetTops = getAnchorsPos().offsetTops
+
+        $(window).scroll(function(){
+            var pos = $(window).scrollTop()
+            isNavInTop(pos)
+            scrollActiveLink(pos, offsetTops, links)
+        });
+    }, 20)
+}
+
+var isNavInTop = function(pos) {
+    if(!!pos){
+        $('nav').addClass('navAdded');
+        $('.goTop').css('display', 'block');
+
+        if (isMobile()) {
+            $('nav').css({
+                display: 'block'
+            })
+        }
+    }else{
+        $('nav').removeClass('navAdded');
+        $('#nav-bar > li > a').removeClass('active');
+        $('#aHome').addClass('active');
+        $('.goTop').css('display', 'none');
+
+        // 移动端顶部不显示导航，滑动出现
+        if (isMobile()) {
+            $('nav').css({
+                display: 'none'
+            })
+        }
+    }
+}
+
+var getAnchorsPos = function() {
+    var links = ['movie', 'stars', 'poster', 'skills', 'scenery', 'contact']
+    var offsetTops = []
+    for (var i = 0; i < links.length; i++) {
+        offsetTops.push($('#' + links[i] + 'Anchor').offset().top)
+    }
+
+    return {links: links, offsetTops: offsetTops}
+}
+
+// 滚动高亮连接
+var scrollActiveLink = function(pos, offsetTops, links) {
+    if (pos < offsetTops[0]) {
+        $('#nav-bar > li > a').removeClass('active');
+        $('#aHome').addClass('active');
+    }
+    for (var i = 0; i < offsetTops.length - 1; i++) {
+        if (pos >= offsetTops[i] && pos < offsetTops[i + 1]) {
+            $('#nav-bar > li > a').removeClass('active');
+            $('#a' + links[i].substr(0, 1).toUpperCase() + links[i].substr(1)).addClass('active')
+        }
+    }
+    if (pos >= offsetTops[offsetTops.length - 1]) {
+        $('#nav-bar > li > a').removeClass('active');
+        $('#aContact').addClass('active');
+    }
+}
+
 // 移动端判断
-let isMobile = function() {
+var isMobile = function() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
         return true
       }
@@ -185,30 +175,11 @@ let isMobile = function() {
     return false
 }
 
-let goTop = function() {
+var goTop = function() {
     $('.goTop').click(function(){
-        $(this).css('display', 'none');
         $(window).scrollTop(0);
+        $(this).css('display', 'none');
     });
-}
-
-// 显示侧边栏
-let showSideMenu = function() {
-    $('.xs-navbar-left').css('display', 'none');
-    $('nav').css({
-        transform: 'translate3d(0%, 0, 0)'
-    });
-    $('.xs-navbar-right').css('display', 'block');
-}
-
-// 隐藏侧边栏
-let hideSideMenu = function() {
-    $('.xs-navbar-right').css('display', 'none');
-    $('nav').css({
-        transform: 'translate3d(-100%, 0, 0)'
-    });
-    $('.xs-navbar-left').css('display', 'block');
-    $('.xs-navbar-left').css('opacity', '1');
 }
 
 //Movie区域鼠标滑动
@@ -322,169 +293,38 @@ var viewsIsotope = function(){
     });
 };
 
+var scrollToAnchor = function() {
+    var hash = window.location.hash
+    var lightStr = ''
+    if (hash) {
+        lightStr = hash.split('Anchor')[0].substr(1)
+        lightStr = 'a' + lightStr.substr(0, 1).toUpperCase() + lightStr.substr(1)
 
-//waypoints
-var animate_popdown = function(){
-    $('.animate_popdown').waypoint(function(direction){
-        if(direction === 'down' && !$(this.element).hasClass('animated')){
-            $(this.element).addClass('item-animate-popdown');
-            setTimeout(function(){
-                $('body .animate_popdown.item-animate-popdown').each(function(k){
-                    var el = $(this);
-                    setTimeout(function(){
-                        el.addClass('fadeInDown animated');
-                        el.removeClass('item-animate-popdown');
-                    }, k*200, 'easeInOutExpo');
-                });
-            }, 100);
-        }
-    }, {offset:'80%'});
-};
-
-var animate_bounceLeft = function(){
-    $('.animate_bounceLeft').waypoint(function(direction){
-        if(direction === 'down' && !$(this.element).hasClass('animated')){
-            $(this.element).addClass('item-animate-popdown');
-            setTimeout(function(){
-                $('body .animate_bounceLeft.item-animate-popdown').each(function(k){
-                    var el = $(this);
-                    setTimeout(function(){
-                        el.addClass('bounceInLeft animated');
-                        el.css('opacity', '1');
-                        el.removeClass('item-animate-popdown');
-                    }, k*1000, 'easeInOutExpo');
-                });
-            }, 100);
-        }
-    }, {offset:'80%'});
-};
-
-var animate_bounceRight = function(){
-    $('.animate_bounceRight').waypoint(function(direction){
-        if(direction === 'down' && !$(this.element).hasClass('animated')){
-            $(this.element).addClass('item-animate-popdown');
-            setTimeout(function(){
-                $('body .animate_bounceRight.item-animate-popdown').each(function(k){
-                    var el = $(this);
-                    setTimeout(function(){
-                        el.addClass('bounceInRight animated');
-                        el.css('opacity', '1');
-                        el.removeClass('item-animate-popdown');
-                    }, 200, 'easeInOutExpo');
-                });
-            }, 1000);
-        }
-    }, {offset:'80%'});
-};
-
-var animate_rotateLeft = function(){
-    $('.animate_rotateLeft').waypoint(function(direction){
-        if(direction === 'down' && !$(this.element).hasClass('animated')){
-            $(this.element).addClass('item-animate-popdown');
-            setTimeout(function(){
-                $('body .animate_rotateLeft.item-animate-popdown').each(function(k){
-                    var el = $(this);
-                    setTimeout(function(){
-                        el.addClass('rotateInDownLeft animated');
-                        el.css('opacity', '1');
-                        el.removeClass('item-animate-popdown');
-                    }, 200, 'easeInOutExpo');
-                });
-            }, 0);
-        }
-    }, {offset:'80%'});
-};
-
-var animate_rotateRight = function(){
-    $('.animate_rotateRight').waypoint(function(direction){
-        if(direction === 'down' && !$(this.element).hasClass('animated')){
-            $(this.element).addClass('item-animate-popdown');
-            setTimeout(function(){
-                $('body .animate_rotateRight.item-animate-popdown').each(function(k){
-                    var el = $(this);
-                    setTimeout(function(){
-                        el.addClass('rotateInDownRight animated');
-                        el.css('opacity', '1');
-                        el.removeClass('item-animate-popdown');
-                    }, 200, 'easeInOutExpo');
-                });
-            }, 0);
-        }
-    }, {offset:'80%'});
-};
-
-var animate_bounceUp = function(){
-    $('.animate_bounceUp').waypoint(function(direction){
-        if(direction === 'down' && !$(this.element).hasClass('animated')){
-            $(this.element).addClass('item-animate-popdown');
-            setTimeout(function(){
-                $('body .animate_bounceUp.item-animate-popdown').each(function(k){
-                    var el = $(this);
-                    setTimeout(function(){
-                        el.addClass('bounceInUp animated');
-                        el.css('opacity', '1');
-                        el.removeClass('item-animate-popdown');
-                    }, 200, 'easeInOutExpo');
-                });
-            }, 0);
-        }
-    }, {offset:'80%'});
-};
-
-
-
-var startWow = function(){
-    var wow = new WOW(
-      {
-        boxClass:     'wow',      // animated element css class (default is wow)
-        animateClass: 'animated', // animation css class (default is animated)
-        offset:       250,          // distance to the element when triggering the animation (default is 0)
-        mobile:       true,       // trigger animations on mobile devices (default is true)
-        live:         true,       // act on asynchronously loaded content (default is true)
-        callback:     function(boxx) {
-          // the callback is fired every time an animation is started
-          // the argument that is passed in is the DOM node being animated
-        }
-      }
-    );
-    wow.init();
-};
-
-var startMagnific = function(){
-    $('.gallery-img').magnificPopup({
-        type: 'image',
-        gallery:{
-            enabled:true
-        }
-    });
-};
+        $('#nav-bar > li > a').removeClass('active');
+        $('#' + lightStr).addClass('active')
+    }
+}
 
 $(function(){
     //插件
     viewsIsotope();
     owlCarousel();
-    startWow();
-    startMagnific();
 
     //自定义
-    setTimeout(() => {
+    setTimeout(function() {
       carouselHeight();
+      isNavInTop($(window).scrollTop())
+      scrollToAnchor()
     }, 20)
     fixedBar();
     movieHover();
     Carousel();
     percentBox();   //百分比圆形环，引用percentBox.css文件
 
-    //waypoints插件配合animate.css
-    animate_popdown();
-    animate_bounceLeft();
-    animate_bounceRight();
-    animate_rotateLeft();
-    animate_rotateRight();
-    animate_bounceUp();
-
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', function() {
         carouselHeight()
         owlCarousel()
     })
+
+    FastClick.attach(document.body)
 });

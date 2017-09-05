@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 	<title>Cool</title>
 	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/owl.theme.default.css">
@@ -26,7 +27,7 @@
 							<div class='nav-brand'>
 								<a href="index.html">
 									<div class="logo">
-										<img src="images/logo.png" alt="Home" />
+										<img width="100%" height="100%" src="images/logo.png" alt="Home" />
 									</div>
 								</a>
 							</div>
@@ -47,40 +48,42 @@
 			</nav>
 			<!-- End:Fixed navbar -->
 			
+			<div id='myCarousel' class='myCarousel'>
+				<div class='item active'>
+					<img src="images/zhitu-des/webp/bg5.webp" alt="First Slide" />
+				</div>
+				<div class='item'>
+					<img src="images/zhitu-des/webp/bg6.webp" alt="Second Slide" />
+				</div>
+				<div class='item'>
+					<img src="images/zhitu-des/webp/bg7.webp" alt="Third Slide" />
+				</div>
+				<div class='control'>
+					<span class='controlLeft fa fa-chevron-left'></span>
+					<span class='controlRight fa fa-chevron-right'></span>
+				</div>
+				<div class='myCarousel-indicators'>
+					<span class='indicator active' data-slide-to='0'></span>
+					<span class='indicator' data-slide-to='1'></span>
+					<span class='indicator' data-slide-to='2'></span>
+				</div>
+			</div>
+			<!-- End:fadeInOut Owner Carousel -->
+
 			<i class='xs-navbar xs-navbar-left'></i>
 			<i class='xs-navbar xs-navbar-right'></i>
 			<!-- Mobile Fixed Side-bar -->
 		</header>
 		<!-- End:Header(navbar and carousel) -->
 
-		<div id='myCarousel' class='myCarousel'>
-			<div class='item active'>
-				<img src="images/bg1.jpg" alt="First Slide" />
-			</div>
-			<div class='item'>
-				<img src="images/bg2.jpg" alt="Second Slide" />
-			</div>
-			<div class='item'>
-				<img src="images/bg3.jpg" alt="Third Slide" />
-			</div>
-			<div class='control'>
-				<span class='controlLeft fa fa-chevron-left'></span>
-				<span class='controlRight fa fa-chevron-right'></span>
-			</div>
-			<div class='myCarousel-indicators'>
-				<span class='indicator active' data-slide-to='0'></span>
-				<span class='indicator' data-slide-to='1'></span>
-				<span class='indicator' data-slide-to='2'></span>
-			</div>
-		</div>
-		<!-- End:fadeInOut Owner Carousel -->
+
 
 		<span id='movieAnchor' class='anchor'></span>
 		<section id='movie'>
 			<div class='container'>
 				<div class='row'>
 					<div class='col-lg-6 col-lg-offset-3'>
-						<div class='intro animate_item animate_popdown'>
+						<div class='intro bounceInLeft'>
 							<h1>Fine <span>Movie</span></h1>
 							<span class='horizon'></span>
 							<p>The furthest distance in the world is not between life and death, But when I stand in front of you, Yet you don't know that I love you.The furthest distance in the world is not when I stand in front of you, Yet you can't see my love, But when undoubtedly konwing the love from both yet can not be togger </p>
@@ -91,7 +94,7 @@
 				<div class='row'>
 					<div class='col-lg-12 col-md-12 movie-frame'>
 						<div class='col-lg-3 col-md-3'>
-							<div class='movie animate_item animate_bounceLeft' id='movie-1'>
+							<div class='movie bounceInLeft' id='movie-1'>
 								<span class='movie-icon'>
 									<i class='fa fa-paper-plane'></i>
 								</span>
@@ -100,7 +103,7 @@
 							</div>
 						</div>
 						<div class='col-lg-3 col-md-3'>
-							<div class='movie animate_item animate_bounceLeft' id='movie-2'>
+							<div class='movie bounceInLeft' id='movie-2'>
 								<span class='movie-icon'>
 									<i class='fa fa-ship'></i>
 								</span>
@@ -109,7 +112,7 @@
 							</div>
 						</div>
 						<div class='col-lg-3 col-md-3'>
-							<div class='movie animate_item animate_bounceRight' id='movie-3'>
+							<div class='movie bounceInLeft' id='movie-3'>
 								<span class='movie-icon'>
 									<i class='fa fa-space-shuttle'></i>
 								</span>
@@ -118,7 +121,7 @@
 							</div>
 						</div>
 						<div class='col-lg-3 col-md-3'>
-							<div class='movie animate_item animate_bounceRight' id='movie-4'>
+							<div class='movie bounceInLeft' id='movie-4'>
 								<span class='movie-icon'>
 									<i class='fa fa-subway'></i>
 								</span>
@@ -138,7 +141,7 @@
 			<div class='container'>
 				<div class='row'>
 					<div class='col-lg-6 col-lg-offset-3 col-md-12'>
-						<div class='intro animate_item animate_popdown'>
+						<div class='intro bounceInLeft'>
 							<h1>Favorite <span>Players</span></h1>
 							<span class='horizon'></span>
 							<p>The movie stars from whole world.</p>
@@ -147,75 +150,75 @@
 				</div>
 				<!-- End:intro -->
 				<div class='favorite-stars'>
-					<div class='animate_item animate_rotateLeft'>
+					<div class='bounceInLeft'>
 						<div class='row'>
 							<div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/1.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/1.webp)'></div>
 									<h3 class='stars-name'>Leonardo Decaprio</h3>
 									<p class='stars-intro'>Leonardo Wilhelm DiCaprio (born November 11 1974) is an American actor and film producer.</p>
 								</div>
 							</div>
 							<div class='col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12 col-sm-3 col-sm-3-offset-1'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/2.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/2.webp)'></div>
 									<h3 class='stars-name'>Ge You</h3>
 									<p class='stars-intro'>Ge You (born April 19, 1957) is an acclaimed Chinese actor. A native of Beijing, he is considered by many to be one of the most recognizable acting personalities in China.</p>
 								</div>
 							</div>
 							<div class='col-lg-3 col-lg-offset-1  col-md-3 col-md-offset-1 col-xs-12 col-sm-3 col-sm-3-offset-1'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/3.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/3.webp)'></div>
 									<h3 class='stars-name'>Ha Jung-woo</h3>
 									<p class='stars-intro'>Ha Jung-woo (born Kim Sung-hoon on March 11, 1978) is a South Korean actor and film director.</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class='animate_item animate_rotateRight'>
+					<div class=' animate_rotateRight'>
 						<div class='row'>
 							<div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/4.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/4.webp)'></div>
 									<h3 class='stars-name'>Ethan Hawke</h3>
 									<p class='stars-intro'>Ethan Green Hawke (born November 6, 1970)[1] is an American actor, writer, and director. He has been nominated for four Academy Awards and a Tony Award.</p>
 								</div>
 							</div>
 							<div class='col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12 col-sm-3 col-sm-3-offset-1'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/5.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/5.webp)'></div>
 									<h3 class='stars-name'>Francis Ng</h3>
 									<p class='stars-intro'>Francis Ng Chun-yu (born 21 December 1961) is a Hong Kong actor and director.[1] He is known for the TVB series.</p>
 								</div>
 							</div>
 							<div class='col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12 col-sm-3 col-sm-3-offset-1'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/6.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/6.webp)'></div>
 									<h3 class='stars-name'>Huang Bo</h3>
 									<p class='stars-intro'>Huang Bo (born August 26, 1974) is a Chinese actor. He was born in Qingdao, Shandong and graduated from Beijing Film Academy.</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class='animate_item animate_rotateLeft'>
+					<div class='bounceInLeft'>
 						<div class='row'>
 							<div class='col-lg-3 col-md-3 col-xs-12 col-sm-3'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/7.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/7.webp)'></div>
 									<h3 class='stars-name'>Nicolas Cage</h3>
 									<p class='stars-intro'>Nicolas Kim Coppola (born January 7, 1964),[1] known professionally as Nicolas Cage, is an American actor and producer.</p>
 								</div>
 							</div>
 							<div class='col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12 col-sm-3 col-sm-3-offset-1'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/8.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/8.webp)'></div>
 									<h3 class='stars-name'>Rose Byrne</h3>
 									<p class='stars-intro'>Mary Rose Byrne[1][2] (born 24 July 1979)[3] is an Australian actress. Byrne made her screen debut in 1992 with a small role in the film Dallas Doll.</p>
 								</div>
 							</div>
 							<div class='col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12 col-sm-3 col-sm-3-offset-1'>
 								<div class='stars'>
-									<div class='star-pic' style='background-image:url(images/stars/9.jpg)'></div>
+									<div class='star-pic' style='background-image:url(images/stars/zhitu-des/webp/9.webp)'></div>
 									<h3 class='stars-name'>Dilraba Dilmurat</h3>
 									<p class='stars-intro'>Dilraba Dilmurat (born 3 June 1992), better known as Dilireba, is a Chinese actress of Uyghur descent. She majors in theater studies at Shanghai Theatre Academy.</p>
 								</div>
@@ -244,16 +247,16 @@
 				<div class='row'>
 					<div class='col-lg-12 col-xs-12 cols-md-12 cols-sm-12'>
 						<div id='owl-carousel' class='owl-carousel owl-theme wow fadeIn xs-12-hack' data-wow-duration='2s'>
-							<a class='item'><img src="images/posters/1.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/2.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/3.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/4.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/5.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/6.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/7.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/8.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/9.jpg" alt=""></a>
-							<a class='item'><img src="images/posters/10.jpg" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/1.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/2.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/3.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/4.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/5.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/6.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/7.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/8.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/9.webp" alt=""></a>
+							<a class='item'><img src="images/posters/zhitu-des/webp/10.webp" alt=""></a>
 						</div>
 					</div>
 				</div>
@@ -267,7 +270,7 @@
 			<div class='container'>
 				<div class='row'>
 					<div class='col-lg-6 col-lg-offset-3  col-md-12'>
-						<div class='intro animate_item animate_popdown'>
+						<div class='intro  animate_popdown'>
 							<h1>My <span>Skills</span></h1>
 							<span class='horizon'></span>
 							<p>Next following is my skills tree.</p>
@@ -319,107 +322,107 @@
 		<span id='sceneryAnchor' class='anchor'></span>
 		<span id='sceneryAnchor' class='anchor'></span>
 		<section id='scenery'>
-			<div class='intro animate_item animate_popdown'>
+			<div class='intro  animate_popdown'>
 				<h1>Fantasty <span>Scenery</span></h1>
 				<span class='horizon'></span>
 				<p>Fantasty picture about scenery</p>
 			</div>
-			<div class='btn-group animate_item animate_bounceLeft'>
+			<div class='btn-group  animate_bounceLeft'>
 				<button id='scenery-all' class='active' data-filter='*'>All</button>
 				<button id='scenery-warm' data-filter='.warm'>Warm-tone</button>
 				<button id='scenery-cool' data-filter='.cool'>Cool-tone</button>
 				<button id='scenery-snow' data-filter='.snow'>Snow</button>
 				<button id='scenery-flower' data-filter='.flower'>Flower</button>
 			</div>
-			<div id='views' class='animate_item animate_bounceLeft'>
+			<div id='views' class=' animate_bounceLeft'>
 					<div class='item cool snow'>
-						<img src="images/scenery/1.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/1.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/1.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/1.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item cool snow'>
-						<img src="images/scenery/2.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/2.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/2.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/2.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item cool snow'>
-						<img src="images/scenery/3.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/3.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/3.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/3.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm flower'>
-						<img src="images/scenery/4.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/4.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/4.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/4.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm flower'>
-						<img src="images/scenery/5.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/5.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/5.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/5.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm'>
-						<img src="images/scenery/6.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/6.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/6.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/6.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item cool'>
-						<img src="images/scenery/7.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/7.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/7.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/7.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm'>
-						<img src="images/scenery/8.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/8.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/8.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/8.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm flower'>
-						<img src="images/scenery/9.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/9.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/9.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/9.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm'>
-						<img src="images/scenery/10.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/10.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/10.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/10.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item cool'>
-						<img src="images/scenery/11.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/11.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/11.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/11.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm flower'>
-						<img src="images/scenery/12.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/12.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/12.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/12.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm'>
-						<img src="images/scenery/13.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/13.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/13.jpg" class='gallery-img'> <i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/13.webp" class='gallery-img'> <i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm flower'>
-						<img src="images/scenery/14.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/14.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/14.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/14.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 					<div class='item warm'>
-						<img src="images/scenery/15.jpg" alt="">
+						<img src="images/scenery/zhitu-des/webp/15.webp" alt="">
 						<div class='item-inner'>
-							<a href="images/scenery/15.jpg" class='gallery-img'><i class='fa fa-search'></i></a>
+							<a href="images/scenery/zhitu-des/webp/15.webp" class='gallery-img'><i class='fa fa-search'></i></a>
 						</div>
 					</div>
 			</div>
@@ -430,7 +433,7 @@
 			<div class='container'>
 				<div class='row'>
 					<div class='col-lg-6 col-lg-offset-3'>
-						<div class='intro animate_item animate_popdown'>
+						<div class='intro  animate_popdown'>
 							<h1><span>PRICING</span></h1>
 							<span class='horizon'></span>
 							<p>All the customs deserve the best services.</p>
@@ -442,7 +445,7 @@
 				<div class='price-content'>
 					<div class='row'>
 						<div class='col-lg-12 col-xs-12'>
-							<div class='price-simple animate_item animate_rotateLeft'>
+							<div class='price-simple  animate_rotateLeft'>
 								<h3>Simple</h3>
 								<span><i class='fa fa-rmb'></i>50/Month</span>
 								<div class='price-server'>Free Setup</div>
@@ -456,7 +459,7 @@
 									<button>Sign Up</button>
 								</div>
 							</div>
-							<div class='price-standard animate_item animate_bounceUp'>
+							<div class='price-standard  animate_bounceUp'>
 								<h3>Standard</h3>
 								<span><i class='fa fa-rmb'></i>100/Month</span>
 								<div class='price-server'>Free Setup</div>
@@ -470,7 +473,7 @@
 									<button>Sign Up</button>
 								</div>
 							</div>
-							<div class='price-ultimate animate_item animate_rotateRight'>
+							<div class='price-ultimate  animate_rotateRight'>
 								<h3>ultimate</h3>
 								<span><i class='fa fa-rmb'></i>150/Month</span>
 								<div class='price-server'>Free Setup</div>
@@ -496,7 +499,7 @@
 			<div class='container'>
 				<div class='row'>
 					<div class='col-lg-6 col-lg-offset-3'>
-						<div class='intro animate_item animate_popdown'>
+						<div class='intro  animate_popdown'>
 							<h1>Contact <span>Me</span></h1>
 							<span class='horizon'></span>
 							<p>Write down your message in following form.</p>
@@ -601,13 +604,17 @@
 	</div>
 
 	<!-- JS ZONE -->
-	<script src='//cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js'></script>
-	<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src='js/isotope.pkgd.min.js'></script>
-	<script src='js/owl.carousel.min.js'></script>
-	<script src='js/index.js'></script>
-	<script src='js/wow.min.js'></script>
-	<script src='js/jquery.magnific-popup.min.js'></script>
-	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script> -->
+	<!-- <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+	<script src="js/jquery-min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- <script src="js/wow.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script> -->
+	<script src="js/fastclick.js"></script>
+	<script src="js/scrollY.js"></script>
+	<script src="js/index.js"></script>
 </body>
 </html>
