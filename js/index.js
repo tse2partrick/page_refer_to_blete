@@ -84,16 +84,18 @@ var Carousel = function(){
 
 //首部导航栏不在顶部的时候增加背景色为白色的样式
 var fixedBar = function(){
-    var timer
+    // 因为是滚动高亮，可以代替下面的连接点击事件
     onScroll()
 
     // 连接点击事件
-    $('#nav-bar > li > a').click(function(event){
+    /* $('#nav-bar > li > a').click(function(event){
+        window.isClickLink = true
         $('#nav-bar > li > a').removeClass('active');
+        var self = $(this)
         setTimeout(function() {
-          $(this).addClass('active');
+          self.addClass('active');
         }, 20)
-    });
+    }); */
     
     // 回到顶部
     goTop()
@@ -102,10 +104,9 @@ var fixedBar = function(){
 var onScroll = function() {
     //  防止不能正确获取offsetTop的位置
     setTimeout(function() {
-        var links = getAnchorsPos().links
-        var offsetTops = getAnchorsPos().offsetTops
-
         $(window).scroll(function(){
+            var links = getAnchorsPos().links
+            var offsetTops = getAnchorsPos().offsetTops
             var pos = $(window).scrollTop()
             isNavInTop(pos)
             scrollActiveLink(pos, offsetTops, links)
