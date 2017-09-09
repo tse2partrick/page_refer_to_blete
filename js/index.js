@@ -321,14 +321,13 @@ $(function(){
       carouselHeight()
       isNavInTop($(window).scrollTop())
       scrollToAnchor()
-      lazyLoad()
     }, 20)
     fixedBar()
     movieHover()
     Carousel()
     percentBox()   // 百分比圆形环，引用percentBox.css文件
+    lazyLoad()
     
-
     window.addEventListener('resize', function() {
         carouselHeight()
         owlCarousel()
