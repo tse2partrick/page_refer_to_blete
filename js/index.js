@@ -312,12 +312,6 @@ var lazyLoad = function lazyLoad() {
 }
 
 $(function(){
-    // 自定义
-    setTimeout(() => {
-      lazyLoad()
-    }, 20)
-    
-
     // 插件
     viewsIsotope()
     owlCarousel()
@@ -327,6 +321,7 @@ $(function(){
       carouselHeight()
       isNavInTop($(window).scrollTop())
       scrollToAnchor()
+      lazyLoad()
     }, 20)
     fixedBar()
     movieHover()
