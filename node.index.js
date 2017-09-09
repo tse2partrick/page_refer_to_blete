@@ -1,4 +1,5 @@
 var express = require('express')
+var compression = require('compression')
 
 var port = 3000
 
@@ -11,6 +12,8 @@ apiRoutes.get('/', function (req, res) {
 })
 
 app.use('/', apiRoutes)
+
+app.use(compression())
 
 app.use(express.static('../page_refer_to_blete-master'))
 
